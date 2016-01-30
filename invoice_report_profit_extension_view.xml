@@ -37,7 +37,6 @@
 		    <field name="arch" type="xml">
 		        <field name="price_total" position="after">
 	                    <field name="profit_total" readonly="1" sum="Total Profit" />
-	                    <field name="cost_total" readonly="1" sum="Total Cost" />
 				</field>
 		    </field>
 		</record>
