@@ -6,7 +6,6 @@ class account_invoice_report(osv.osv):
     _columns = {
                  
          'profit_total': fields.float('Total Profit', readonly=True),
-         'cost_total': fields.float('Total Cost', readonly=True),
         }
     
     def create(self, vals):
