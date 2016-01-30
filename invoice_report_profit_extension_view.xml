@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+	    <record id="view_account_invoice_report_tree" model="ir.ui.view">
+	        <field eval="1" name="priority"/>
+	        <field name="name">account.invoice.report.tree</field>
+	        <field name="model">account.invoice.report</field>
+	        <field name="arch" type="xml">
+	            <tree string="Invoices Analysis" create="false">
+	                <field name="date" invisible="1"/>
+	                <field name="user_id" invisible="1"/>
+	                <field name="period_id" invisible="1"/>
+	                <field name="company_id" invisible="1" groups="base.group_multi_company"/>
+	                <field name="partner_id" invisible="1"/>
+	                <field name="product_id" invisible="1"/>
+	                <field name="categ_id" invisible="1"/>
+	                <field name="nbr" sum="# of Lines"/>
+	                <field name="price_total" sum="Total Price"/>
+	                <field name="state" invisible="1"/>	               
+	            </tree>
+	        </field>
+	    </record>    	
+<!-- 	     <record id="view_account_invoice_report_tree_inherit" model="ir.ui.view"> -->
+<!-- 	         <field name="name">account.invoice.tree.sale.stock</field> -->
+<!-- 	         <field name="model">account.invoice.report</field> -->
+<!-- 	         <field name="inherit_id" ref="view_account_invoice_report_tree"/> -->
+<!-- 	         <field name="arch" type="xml"> -->
+<!-- 	         </field> -->
+<!-- 	     </record> -->
+    	
+	     <record id="view_account_invoice_report_tree_update1" model="ir.ui.view">
+		    <field name="name">account.invoice.inherit.tree.invoice.profit</field>
+		    <field name="model">account.invoice.report</field>
+		    <field name="type">tree</field>
+	            <field name="priority">20</field>
+<!-- 		    <field name="inherit_id" ref="view_account_invoice_report_tree_inherit"/> -->
+		    <field name="arch" type="xml">
+		        <field name="price_total" position="after">
+	                    <field name="profit_total" readonly="1" sum="Total Profit" />
+	                    <field name="cost_total" readonly="1" sum="Total Cost" />
+				</field>
+		    </field>
+		</record>
+     </data>
+</openerp>
+	
